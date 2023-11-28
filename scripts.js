@@ -37,7 +37,7 @@ const addSkillBadges = () => {
     },
     misc: {
       color: "bg-orange-400",
-      list: ["JSON Schema"],
+      list: ["JSON Schema", "Open Telemetry"],
     },
     soft: {
       color: "bg-pink-400",
