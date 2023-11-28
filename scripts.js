@@ -60,12 +60,17 @@ const addSkillBadges = () => {
       div.classList.add("badge", skills[key].color);
       const textNode = this.document.createTextNode(skill);
       div.appendChild(textNode);
-      skillsElement.appendChild(div);
+        skillsElement.appendChild(div);
     }
   }
 };
 
-const addWorkExperience = () => {
+const workExperienceView = {
+    Summary: "summary",
+    Detailed: "detailed"
+}
+
+const renderWorkExperience = (view) => {
     const workExperience = [
         {
             order: 1,
@@ -77,8 +82,7 @@ const addWorkExperience = () => {
                 "Implemented responsive designs to ensure a seamless user experience."
             ],
             summaryBullets: [
-                "Worked on the development of user interfaces for web applications.",
-                "Implemented responsive designs to ensure a seamless user experience."
+                "Worked on the development of user interfaces for web applications."
             ]
         },
         {
@@ -91,8 +95,7 @@ const addWorkExperience = () => {
                 "Implemented responsive designs to ensure a seamless user experience."
             ],
             summaryBullets: [
-                "Worked on the development of user interfaces for web applications.",
-                "Implemented responsive designs to ensure a seamless user experience."
+                "Worked on the development of user interfaces for web applications."
             ]
         },
         {
@@ -105,13 +108,14 @@ const addWorkExperience = () => {
                 "Implemented responsive designs to ensure a seamless user experience."
             ],
             summaryBullets: [
-                "Worked on the development of user interfaces for web applications.",
-                "Implemented responsive designs to ensure a seamless user experience."
+                "Worked on the development of user interfaces for web applications."
             ]
         }
     ];
 
     const timelineElement = this.document.getElementById("timeline");
+    timelineElement.innerHTML = "";
+
     const sortAscending = (a, b) => (a.order - b.order);
 
     for (let exp of workExperience.sort(sortAscending)) {
@@ -148,7 +152,16 @@ const addWorkExperience = () => {
         const bulletList = this.document.createElement("ul")
         bulletList.classList.add("list-disc", "ml-6");
 
-        for (let bulletTxt of exp.bullets) {
+        let bulletsToRender = [];
+
+        if (view == workExperienceView.Detailed) {
+            bulletsToRender = exp.bullets;
+        }
+        else {
+            bulletsToRender = exp.summaryBullets;
+        }
+
+        for (let bulletTxt of bulletsToRender) {
             const bullet = this.document.createElement("li");
             const bulletTextNode = this.document.createTextNode(bulletTxt);
             bullet.appendChild(bulletTextNode);
@@ -162,7 +175,26 @@ const addWorkExperience = () => {
     }
 };
 
+const toggleDetailedView = () => {
+    if (currentWorkExperienceView == workExperienceView.Summary) {
+        currentWorkExperienceView = workExperienceView.Detailed;
+    }
+    else {
+        currentWorkExperienceView = workExperienceView.Summary;
+    }
+    renderWorkExperience(currentWorkExperienceView);
+
+};
+
+const listenToToggleDetailedView = () => {
+    const toggleDetailedViewButton = this.document.getElementById("toggle-detailed-view");
+    toggleDetailedViewButton.addEventListener("click", toggleDetailedView);
+};
+
+let currentWorkExperienceView = workExperienceView.Summary;
+
 window.addEventListener("load", function () {
     addSkillBadges();
-    addWorkExperience();
+    renderWorkExperience(currentWorkExperienceView);
+    listenToToggleDetailedView();
 });
