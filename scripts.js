@@ -65,6 +65,104 @@ const addSkillBadges = () => {
   }
 };
 
+const addWorkExperience = () => {
+    const workExperience = [
+        {
+            order: 1,
+            title: "Sr. Software Engineer",
+            company: "Health Catalyst, South Jordan UT",
+            date: "March 2021 - Present",
+            bullets: [
+                "Worked on the development of user interfaces for web applications.",
+                "Implemented responsive designs to ensure a seamless user experience."
+            ],
+            summaryBullets: [
+                "Worked on the development of user interfaces for web applications.",
+                "Implemented responsive designs to ensure a seamless user experience."
+            ]
+        },
+        {
+            order: 2,
+            title: "Software Engineer",
+            company: "Health Catalyst, South Jordan UT",
+            date: "December 2018 - March 2021",
+            bullets: [
+                "Worked on the development of user interfaces for web applications.",
+                "Implemented responsive designs to ensure a seamless user experience."
+            ],
+            summaryBullets: [
+                "Worked on the development of user interfaces for web applications.",
+                "Implemented responsive designs to ensure a seamless user experience."
+            ]
+        },
+        {
+            order: 3,
+            title: "Software Engineer Intern",
+            company: "Health Catalyst, South Jordan UT",
+            date: "July 2018 - December 2018",
+            bullets: [
+                "Worked on the development of user interfaces for web applications.",
+                "Implemented responsive designs to ensure a seamless user experience."
+            ],
+            summaryBullets: [
+                "Worked on the development of user interfaces for web applications.",
+                "Implemented responsive designs to ensure a seamless user experience."
+            ]
+        }
+    ];
+
+    const timelineElement = this.document.getElementById("timeline");
+    const sortAscending = (a, b) => (a.order - b.order);
+
+    for (let exp of workExperience.sort(sortAscending)) {
+        const containerDiv = this.document.createElement("div");
+        containerDiv.classList.add("flex", "items-center");
+
+        const bulletDiv = this.document.createElement("div");
+        bulletDiv.classList.add("bg-primary", "w-2", "h-2", "rounded-full", "mr-4")
+
+        containerDiv.appendChild(bulletDiv);
+
+        const contentDiv = this.document.createElement("div");
+
+        const title = this.document.createElement("p")
+        title.classList.add("text-lg", "font-semibold");
+        const titleTextNode = this.document.createTextNode(exp.title);
+        title.appendChild(titleTextNode);
+        
+        contentDiv.appendChild(title);
+
+        const company = this.document.createElement("p")
+        const companyTextNode = this.document.createTextNode(exp.company);
+        company.appendChild(companyTextNode);
+
+        contentDiv.appendChild(company);
+
+        const date = this.document.createElement("p")
+        date.classList.add("text-secondary");
+        const dateTextNode = this.document.createTextNode(exp.date);
+        date.appendChild(dateTextNode);
+
+        contentDiv.appendChild(date);
+
+        const bulletList = this.document.createElement("ul")
+        bulletList.classList.add("list-disc", "ml-6");
+
+        for (let bulletTxt of exp.bullets) {
+            const bullet = this.document.createElement("li");
+            const bulletTextNode = this.document.createTextNode(bulletTxt);
+            bullet.appendChild(bulletTextNode);
+
+            bulletList.appendChild(bullet);
+        }
+
+        contentDiv.appendChild(bulletList);
+        containerDiv.appendChild(contentDiv);   
+        timelineElement.appendChild(containerDiv);
+    }
+};
+
 window.addEventListener("load", function () {
-  addSkillBadges();
+    addSkillBadges();
+    addWorkExperience();
 });
