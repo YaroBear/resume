@@ -48,6 +48,7 @@ const addSkillBadges = () => {
         "Quick Learner",
         "Adventurous",
         "Resilient",
+        "Communication"
       ],
     },
   };
@@ -78,8 +79,14 @@ const renderWorkExperience = (view) => {
             company: "Health Catalyst, South Jordan UT",
             date: "March 2021 - Present",
             bullets: [
-                "Worked on the development of user interfaces for web applications.",
-                "Implemented responsive designs to ensure a seamless user experience."
+                "Designed and implemented a consolidated logging solution using a combination of AppInsights and OpenTelemetry libraries across dozens of components and language runtimes in our cloud architecture. This enabled querying all logs and events using a single trace id spanning across multiple service boundaries, which helped teams to quickly pinpoint failures and bottlenecks, and laid the foundation for creating actionable alerts to be in compliance with our service level agreements.",
+                "Developed a Python module that automatically integrates with essential libraries utilized in Databricks workflows. This module provided multiple teams with valuable insights into failures and exposed diverse metrics to AppInsights.",
+                `Designed and implemented a cloud native auditing platform that replaced a 3rd party tool that monitored 140+ environments, resulting in million-dollar yearly cost savings in licensing, storage, and VM costs.
+                The solution reduced team support burden significantly by enabling one click deployment from Azure with centralized monitoring and eliminated the need for cross-team maintenance of 70+ virtual machines.
+                `,
+                "Contributed to critical OpenSource projects that are used internally, including submitting issues and code changes to dsccommunity/SqlServerDsc.",
+                "Collaborated closely with other teams to facilitate understanding of subjects demanding cross-team coordination. This involved conducting demonstrations, organizing pair programming sessions, adapting swiftly to incorporate specialized use cases, and generating documentation and educational materials housed in a centralized wiki.",
+                "Participated in regular InnerSource library guidance meetings with engineering leads and architects."
             ],
             summaryBullets: [
                 "Worked on the development of user interfaces for web applications."
@@ -91,8 +98,10 @@ const renderWorkExperience = (view) => {
             company: "Health Catalyst, South Jordan UT",
             date: "December 2018 - March 2021",
             bullets: [
-                "Worked on the development of user interfaces for web applications.",
-                "Implemented responsive designs to ensure a seamless user experience."
+                "Modernized new client deployment using ARM templates and Azure pipelines, reducing new client setup time from 1+ week to 2 hours.",
+                `Revitalized the frontend for a data entry application (IDEA) in Angular from Angular.js, as well as implemented new functionality in the .NET backend and integrated OpenID Connect framework to enable customers to bring their own Identity Providers.`,
+                `Designed and implemented Data Quality Dashboards in the Metadata Catalog (Atlas) including Data Profiling, which enabled users to see null, unique, non-unique, min, max, and other data metrics of the tables brought into the the Enterprise Data Warehouse (EDW).`,
+                `Created a Data Quality Profiling plugin in C# that's used by the Health Catalyst Engine to automatically run profiling jobs after every ETL load so Atlas profiling data was always up-to-date.`
             ],
             summaryBullets: [
                 "Worked on the development of user interfaces for web applications."
@@ -104,8 +113,8 @@ const renderWorkExperience = (view) => {
             company: "Health Catalyst, South Jordan UT",
             date: "July 2018 - December 2018",
             bullets: [
-                "Worked on the development of user interfaces for web applications.",
-                "Implemented responsive designs to ensure a seamless user experience."
+                "Implemented multiple dynamic data lineage visualizations in Angular and Graphviz/Dot language using metadata in the Enterprise Data Warehouse (EDW). This enabled technical users to visualize dependencies between table loads, and quickly spot circular references or other potential issues.",
+                "Revitalized the Metadata Catalog (Atlas) to Angular from Angular.js."
             ],
             summaryBullets: [
                 "Worked on the development of user interfaces for web applications."
@@ -128,6 +137,7 @@ const renderWorkExperience = (view) => {
         containerDiv.appendChild(bulletDiv);
 
         const contentDiv = this.document.createElement("div");
+        contentDiv.classList.add("flex-1");
 
         const title = this.document.createElement("p")
         title.classList.add("text-lg", "font-semibold");
@@ -191,7 +201,7 @@ const listenToToggleDetailedView = () => {
     toggleDetailedViewButton.addEventListener("click", toggleDetailedView);
 };
 
-let currentWorkExperienceView = workExperienceView.Summary;
+let currentWorkExperienceView = workExperienceView.Detailed;
 
 window.addEventListener("load", function () {
     addSkillBadges();
