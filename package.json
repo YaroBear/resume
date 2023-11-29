@@ -4,7 +4,6 @@
   "description": "Yaro's Resume",
   "private": "true",
   "scripts": {
-    "watch": "npx tailwindcss -i styles.css -o ./dist/output.css --watch",
     "build": "webpack --mode production",
     "serve": "webpack serve --mode production"
   },
