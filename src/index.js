@@ -102,7 +102,7 @@ const renderWorkExperience = (view) => {
       bullets: [
         "Modernized new client deployment using ARM templates and Azure pipelines, reducing new client setup time from 1+ week to 2 hours.",
         `Revitalized the frontend for a data entry application (IDEA) to Angular from Angular.js, as well as implemented new functionality in the .NET backend and integrated OpenID Connect framework to enable customers to bring their own Identity Providers.`,
-        `Designed and implemented Data Quality Dashboards in the Metadata Catalog (Atlas) including Data Profiling, which enabled users to see null, unique, non-unique, min, max, and other data metrics of the tables brought into the the Enterprise Data Warehouse (EDW).`,
+        `Designed and implemented Data Quality Dashboards in the Metadata Catalog (Atlas) including Data Profiling, which enabled users to see null, unique, non-unique, min, max, and other data metrics of the tables brought into the Enterprise Data Warehouse (EDW).`,
         `Created a Data Quality Profiling plugin in C# that's used by the Health Catalyst Engine to automatically run profiling jobs after every ETL load so Atlas profiling data was always up-to-date.`,
       ],
       summaryBullets: [
