@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./dist/output.css" rel="stylesheet" type="text/css" />
-    <script src="./scripts.js"></script>
     <title>Yaroslav Berejnoi - Resume</title>
   </head>
   <body class="bg-gray-100 h-full">
@@ -15,10 +13,29 @@
           <div class="flex-1">
             <div class="dropdown">
               <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h7"
+                  />
+                </svg>
               </div>
-              <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li><button id="toggle-detailed-view"><a>Toggle Detailed View</a></button></li>
+              <ul
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <button id="toggle-detailed-view">
+                    <a>Toggle Detailed View</a>
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
@@ -47,8 +64,7 @@
         <!-- Skills -->
         <div class="mb-4">
           <h2 class="text-xl font-bold mb-2 text-primary">Skills</h2>
-          <div id="skill-badges" class="flex flex-wrap gap-2">
-          </div>
+          <div id="skill-badges" class="flex flex-wrap gap-2"></div>
         </div>
 
         <!-- Work Experience -->
@@ -56,8 +72,7 @@
           <h2 class="text-xl font-bold mb-2 text-primary">Work Experience</h2>
 
           <!-- Timeline -->
-          <div id="timeline" class="flex flex-col space-y-4">
-          </div>
+          <div id="timeline" class="flex flex-col space-y-4"></div>
         </div>
 
         <!-- Education -->
