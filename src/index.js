@@ -1,4 +1,5 @@
 import "./styles.css";
+import HcLogo from "./assets/hc.svg";
 
 const addSkillBadges = () => {
   const skills = {
@@ -79,13 +80,14 @@ const renderWorkExperience = (view) => {
       order: 1,
       title: "Sr. Software Engineer",
       company: "Health Catalyst, South Jordan UT",
+      logo: HcLogo,
       date: "March 2021 - Present",
       bullets: [
         "Designed and implemented a consolidated logging solution using a combination of AppInsights and OpenTelemetry libraries across dozens of components and language runtimes in our cloud architecture. This enabled querying all logs and events using a single trace id spanning across multiple service boundaries, which helped teams to quickly pinpoint failures and bottlenecks, and laid the foundation for creating actionable alerts to be in compliance with our service level agreements.",
         "Developed a Python module that automatically integrates with essential libraries utilized in Databricks workflows. This module provided multiple teams with valuable insights into failures and exposed diverse metrics to AppInsights.",
         `Designed and implemented a cloud native auditing platform that replaced a 3rd party tool that monitored 140+ environments, resulting in million-dollar yearly cost savings in licensing, storage, and VM costs.
-                The solution reduced team support burden significantly by enabling one click deployment from Azure with centralized monitoring and eliminated the need for cross-team maintenance of 70+ virtual machines.
-                `,
+        The solution reduced team support burden significantly by enabling one click deployment from Azure with centralized monitoring and eliminated the need for cross-team maintenance of 70+ virtual machines.
+        `,
         "Contributed to critical OpenSource projects that are used internally, including submitting issues and code changes to dsccommunity/SqlServerDsc.",
         "Collaborated closely with other teams to facilitate understanding of subjects demanding cross-team coordination. This involved conducting demonstrations, organizing pair programming sessions, adapting swiftly to incorporate specialized use cases, and generating documentation and educational materials housed in a centralized wiki.",
         "Participated in regular InnerSource library guidance meetings with engineering leads and architects.",
@@ -98,6 +100,7 @@ const renderWorkExperience = (view) => {
       order: 2,
       title: "Software Engineer",
       company: "Health Catalyst, South Jordan UT",
+      logo: HcLogo,
       date: "December 2018 - March 2021",
       bullets: [
         "Modernized new client deployment using ARM templates and Azure pipelines, reducing new client setup time from 1+ week to 2 hours.",
@@ -113,6 +116,7 @@ const renderWorkExperience = (view) => {
       order: 3,
       title: "Software Engineer Intern",
       company: "Health Catalyst, South Jordan UT",
+      logo: HcLogo,
       date: "July 2018 - December 2018",
       bullets: [
         "Implemented multiple dynamic data lineage visualizations in Angular and Graphviz/Dot language using metadata in the Enterprise Data Warehouse (EDW). This enabled technical users to visualize dependencies between table loads, and quickly spot circular references or other potential issues.",
@@ -133,33 +137,45 @@ const renderWorkExperience = (view) => {
     const containerDiv = document.createElement("div");
     containerDiv.classList.add("flex", "items-center");
 
-    const bulletDiv = document.createElement("div");
-    bulletDiv.classList.add("bg-primary", "w-2", "h-2", "rounded-full", "mr-4");
-
-    containerDiv.appendChild(bulletDiv);
-
     const contentDiv = document.createElement("div");
     contentDiv.classList.add("flex-1");
+
+    const overviewDiv = document.createElement("div");
+    overviewDiv.classList.add("flex", "mb-2");
+
+    const avatarDiv = document.createElement("div");
+    avatarDiv.classList.add("w-6", "rounded-full", "border-solid", "border-primary", "mr-4", "ml-4", "self-center");
+
+    const imgElement = document.createElement("img");
+    imgElement.src = exp.logo;
+
+    avatarDiv.appendChild(imgElement);
+    overviewDiv.appendChild(avatarDiv);
+
+    const descriptionDiv = document.createElement("div");
 
     const title = document.createElement("p");
     title.classList.add("text-lg", "font-semibold");
     const titleTextNode = document.createTextNode(exp.title);
     title.appendChild(titleTextNode);
-
-    contentDiv.appendChild(title);
+  
+    descriptionDiv.appendChild(title);
 
     const company = document.createElement("p");
     const companyTextNode = document.createTextNode(exp.company);
     company.appendChild(companyTextNode);
 
-    contentDiv.appendChild(company);
+    descriptionDiv.appendChild(company);
 
     const date = document.createElement("p");
     date.classList.add("text-secondary");
     const dateTextNode = document.createTextNode(exp.date);
     date.appendChild(dateTextNode);
 
-    contentDiv.appendChild(date);
+    descriptionDiv.appendChild(date);
+
+    overviewDiv.appendChild(descriptionDiv);
+    contentDiv.appendChild(overviewDiv);
 
     const bulletList = document.createElement("ul");
     bulletList.classList.add("list-disc", "ml-6");
