@@ -84,7 +84,7 @@ const renderWorkExperience = (view) => {
       date: "March 2021 - Present",
       bullets: [
         "Designed and implemented a consolidated logging solution using a combination of AppInsights and OpenTelemetry libraries across dozens of components and language runtimes in our cloud architecture. This enabled querying all logs and events using a single trace id spanning across multiple service boundaries, which helped teams to quickly pinpoint failures and bottlenecks, and laid the foundation for creating actionable alerts to be in compliance with our service level agreements.",
-        "Developed a Python module that automatically integrates with essential libraries utilized in Databricks workflows. This module provided multiple teams with valuable insights into failures and exposed diverse metrics to AppInsights.",
+        "Developed a Python module that automatically instruments essential libraries utilized in Databricks workflows. This module provided multiple teams with valuable insights into failures and exposed diverse metrics to AppInsights.",
         `Designed and implemented a cloud native auditing platform that replaced a 3rd party tool that monitored 140+ environments, resulting in million-dollar yearly cost savings in licensing, storage, and VM costs.
         The solution reduced team support burden significantly by enabling one click deployment from Azure with centralized monitoring and eliminated the need for cross-team maintenance of 70+ virtual machines.
         `,
@@ -93,7 +93,12 @@ const renderWorkExperience = (view) => {
         "Participated in regular InnerSource library guidance meetings with engineering leads and architects.",
       ],
       summaryBullets: [
-        "Worked on the development of user interfaces for web applications.",
+        "Implemented a centralized logging solution using AppInsights and OpenTelemetry across cloud architecture, facilitating quick issue identification and SLA compliance.",
+        "Developed a Python module for automatically instrumenting Databricks workflows, offering insights and metrics to AppInsights.",
+        "Designed a cloud-native auditing platform, replacing costly 3rd party tool, saving millions annually and reducing support burden.",
+        "Contributed to critical OpenSource projects, including dsccommunity/SqlServerDsc.",
+        "Collaborated with teams through demos, pair programming, and documentation to streamline cross-team coordination.",
+        "Participated in regular InnerSource library guidance meetings with engineering leads and architects.",
       ],
     },
     {
@@ -109,7 +114,10 @@ const renderWorkExperience = (view) => {
         `Created a Data Quality Profiling plugin in C# that's used by the Health Catalyst Engine to automatically run profiling jobs after every ETL load so Atlas profiling data was always up-to-date.`,
       ],
       summaryBullets: [
-        "Worked on the development of user interfaces for web applications.",
+        "Streamlined new client deployment with ARM templates and Azure pipelines, slashing setup time from over a week to just 2 hours.",
+        "Modernized frontend of data entry app (IDEA) to Angular, upgraded .NET backend, and integrated OpenID Connect framework for customizable Identity Providers.",
+        "Developed Data Quality Dashboards in Metadata Catalog (Atlas), including Data Profiling, enhancing visibility into data metrics within the Enterprise Data Warehouse (EDW).",
+        "Automated Data Quality Profiling in C# plugin for Health Catalyst Engine, ensuring up-to-date profiling data in Atlas after every ETL load.",
       ],
     },
     {
@@ -123,7 +131,8 @@ const renderWorkExperience = (view) => {
         "Revitalized the Metadata Catalog (Atlas) to Angular from Angular.js.",
       ],
       summaryBullets: [
-        "Worked on the development of user interfaces for web applications.",
+        "Implemented dynamic data lineage visualizations in Angular and Graphviz/Dot language using metadata in the Enterprise Data Warehouse (EDW), aiding users in visualizing dependencies and identifying potential issues.",
+        "Revitalized Metadata Catalog (Atlas) from Angular.js to Angular.",
       ],
     },
   ];
@@ -144,7 +153,15 @@ const renderWorkExperience = (view) => {
     overviewDiv.classList.add("flex", "mb-2");
 
     const avatarDiv = document.createElement("div");
-    avatarDiv.classList.add("w-6", "rounded-full", "border-solid", "border-primary", "mr-4", "ml-4", "self-center");
+    avatarDiv.classList.add(
+      "w-6",
+      "rounded-full",
+      "border-solid",
+      "border-primary",
+      "mr-4",
+      "ml-4",
+      "self-center"
+    );
 
     const imgElement = document.createElement("img");
     imgElement.src = exp.logo;
@@ -158,7 +175,7 @@ const renderWorkExperience = (view) => {
     title.classList.add("text-lg", "font-semibold");
     const titleTextNode = document.createTextNode(exp.title);
     title.appendChild(titleTextNode);
-  
+
     descriptionDiv.appendChild(title);
 
     const company = document.createElement("p");
@@ -218,7 +235,7 @@ const listenToToggleDetailedView = () => {
   toggleDetailedViewButton.addEventListener("click", toggleDetailedView);
 };
 
-let currentWorkExperienceView = workExperienceView.Detailed;
+let currentWorkExperienceView = workExperienceView.Summary;
 
 window.addEventListener("load", function () {
   addSkillBadges();
